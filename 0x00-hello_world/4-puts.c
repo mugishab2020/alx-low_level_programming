@@ -5,6 +5,6 @@
   */
 int main(void)
 {
-puts("\"Pramming is like building a multilingual puzzle");
+puts("\"Pramming is like building a multilingual puzzle \n");
 return (0);
 }
