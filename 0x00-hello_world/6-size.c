@@ -1,8 +1,8 @@
 #include<stdio.h>
 /**
-* main - the function to print the size of various datatype in computer 
-* 
-* Return: 0 (Success)
+* main - Entry point
+*
+* Return: Always 0 (Success)
 */
 int main(void)
 {
