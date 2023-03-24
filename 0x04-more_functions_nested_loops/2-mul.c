@@ -1,11 +1,12 @@
 #include "main.h"
+
 /**
- * main - check the code
- *
- * Return: Always 0.
+ * mul - multipply 2 num
+ * @a: first num
+ * @b: second num
+ * Return: result of multiplication
  */
 int mul(int a, int b)
 {
 	return (a * b);
-
 }
