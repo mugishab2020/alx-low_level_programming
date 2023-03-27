@@ -13,6 +13,7 @@ void print_rev(char *s)
 		howlong++;
 		s++;
 	}
+	s--;
 
 	for (reverse = howlong; reverse > 0; reverse--)
 	{
