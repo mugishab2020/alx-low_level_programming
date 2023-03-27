@@ -8,12 +8,12 @@
 void puts2(char *str)
 {
 	int howlong = 0;
-        char *y = str;
+char *t = str;
 	int o;
 
-	while (*y != '\0')
+	while (*t != '\0')
 	{
-		y++;
+		t++;
 		howlong++;
 	}
 	howlong = howlong - 1;
