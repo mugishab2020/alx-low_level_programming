@@ -17,6 +17,7 @@ for (a = 0; arr[a] != '\0'; a++)
 		if (arr[a] == data[b])
 		{
 			arr[a] = datarot13[b];
+			break;
 	}
 }
 }
