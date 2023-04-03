@@ -2,7 +2,7 @@
 #include <stdio.h>
 /**
  * print_diagsums -  function entry point
- * @b: the input array
+ * @a: the input array
  * @size: the size of input array
  * Return: alwys ) (as success)
  */
