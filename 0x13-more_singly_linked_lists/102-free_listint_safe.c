@@ -1,4 +1,5 @@
 #include "lists.h"
+#include <stdlib.h>
 /**
  * free_listint_safe - function to free the list in safe version
  * @h: the pointer to the haead of the list
@@ -23,7 +24,7 @@ size_t free_listint_safe(listint_t **h)
 			tempo = (*h)->next;
 			free(*h);
 			*h = tempo;
-			lenth++;
+			length++;
 
 		}
 		else
