@@ -1,44 +1,80 @@
 #include <stdlib.h>
 #include "lists.h"
 #include <stdio.h>
+size_t looped_listint_len(const listint_t *head);
+size_t print_listint_safe(const listint_t *head);
 /**
- * print_listint_safe - function to print the linked list
+ * looped_listint_len - function to print the linked list
  * @head: the pointer to the head
  * Return: the number of node printed
  */
-size_t print_listint_safe(const listint_t *head)
+size_t looped_listint_len(const listint_t *head)
 {
-	const listint_t *slow = head, *fast = head;
-	size_t num = 0;
+	const listint_t *slow, *fast;
+	size_t num  = 1;
 
-	while (slow && fast && fast->next)
+	if (head == NULL || head->next == NULL)
+		return (0);
+	slow = head->next;
+	fast = (head->next)->next;
+
+	while (fast)
 	{
-		slow = slow->next;
-		fast = fast->next->next;
-		num++;
-
 		if (slow == fast)
 		{
-			printf("-> [%p] %d\n", (void *)slow, slow->n);
-			while (head != slow)
+			slow = head;
+			while (slow != fast)
 			{
-				printf("[%p] %d\n", (void *)head, head->n);
 				num++;
-				head = head->next;
+				slow = slow->next;
+				fast = fast->next;
+			}
+			slow = slow->next;
+
+			while (slow != fast)
+			{
+				num++;
 				slow = slow->next;
 
 			}
-			printf("[%p] %d\n", (void *)head, head->n);
 			return (num);
 		}
-		printf("[%p] %d\n", (void *)slow, slow->n);
+		slow = slow->next;
+		fast = (fast->next)->next;
 	}
-		while (head)
+	return (0);
+}
+/**
+ * print_listint_safe - function to print the list in safe mode
+ * @head: the pointer to the head of the list
+ * Return: the node printed
+ */
+size_t print_listint_safe(const listint_t *head)
+{
+	size_t node, index = 0;
+
+	node = looped_listint_len(head);
+
+	if (node == 0)
+	{
+
+		for (; head != NULL; node++)
 		{
 			printf("[%p] %d\n", (void *)head, head->n);
-					num++;
-					head = head->next;
+			head = head->next;
 
 		}
-		return (num);
 	}
+	else
+	{
+		for (index = 0; index < node; index++)
+		{
+			printf("[%p] %d\n", (void *)head, head->n);
+			head = head->next;
+		}
+		printf("->[%p] %d\n", (void *)head, head->n);
+
+	}
+	return (node);
+
+}
