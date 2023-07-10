@@ -1,6 +1,6 @@
 #include "hash_tables.h"
 /**
- * hash_table_get - function to retreave the values associated with a key in hash table
+ * hash_table_get - retreave the values associated with a key in hash table
  * @ht: the hash table we are retreaving
  * @key: the key to retreave
  * Return: 1 for true or NULL if key couldn’t be found
