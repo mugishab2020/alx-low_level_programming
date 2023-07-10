@@ -4,7 +4,7 @@
  * hash_table_print - functioon to print hash table.
  * @ht: the hash table to print
  */
- void hash_table_print(const hash_table_t *ht)
+void hash_table_print(const hash_table_t *ht)
 {
 	hash_node_t *node;
 	unsigned long int index;
