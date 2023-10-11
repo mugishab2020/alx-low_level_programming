@@ -8,21 +8,29 @@
  */
 int interpolation_search(int *array, size_t size, int value)
 {
-	size_t h = size - 1, l = 0, p;
+	size_t i, l, r;
 
 	if (array == NULL)
 		return (-1);
-	while (l <= h && value >= array[l] && value <= array[h])
+
+	for (l = 0, r = size - 1; r >= l;)
 	{
-		p = l + (((h - l) / (array[h] - array[l])) * (value - array[l]));
-		printf("Value checked array[%lu] = [%d]\n", p, array[p]);
-		if (array[p] == value)
-			return (p);
-		else if (array[p] < value)
-			l = p + 1;
+		i = l + (((double)(r - l) / (array[r] - array[l])) * (value - array[l]));
+		if (i < size)
+			printf("Value checked array[%ld] = [%d]\n", i, array[i]);
 		else
-			h = p - 1;
+		{
+			printf("Value checked array[%ld] is out of range\n", i);
+			break;
+		}
+
+		if (array[i] == value)
+			return (i);
+		if (array[i] > value)
+			r = i - 1;
+		else
+			l = i + 1;
 	}
-	printf("Value checked array[%ld] is out of range\n", p);
+
 	return (-1);
 }
